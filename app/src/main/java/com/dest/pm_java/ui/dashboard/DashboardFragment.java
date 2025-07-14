@@ -83,13 +83,15 @@ public class DashboardFragment extends Fragment {
                     }
 
                     JSONObject json = new JSONObject(response.toString());
+                    JSONObject data = json.getJSONObject("data");
+
                     return new User(
-                            json.optString("id"),
-                            json.optString("username"),
-                            json.optString("firstname"),
-                            json.optString("lastname"),
-                            json.optString("image"),
-                            json.optString("password")
+                            data.optString("id"),
+                            data.optString("email"),
+                            data.optString("username"),
+                            data.optString("first_name"),
+                            data.optString("last_name"),
+                            data.optString("avatar_url")
                     );
                 }
 
